@@ -13,6 +13,7 @@ import android.view.ViewGroup;
  */
 public class TransactionFragment extends Fragment {
 
+    View v;
 
     public TransactionFragment() {
         // Required empty public constructor
@@ -23,7 +24,8 @@ public class TransactionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transaction, container, false);
+        v = inflater.inflate(R.layout.fragment_transaction, container, false);
+        return v;
     }
 
 }

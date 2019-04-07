@@ -3,8 +3,11 @@ package com.example.coinbase;
 import android.accounts.Account;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,8 +15,10 @@ import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BottomNavigationView mainNav;
-    private FrameLayout mainFrame;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ViewPagerAdapter adapter;
+
 
     private HomeFragment homeFragment;
     private TransactionFragment transactionFragment;
@@ -25,45 +30,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainNav = (BottomNavigationView) findViewById(R.id.mainNav);
-        mainFrame = (FrameLayout) findViewById(R.id.mainFrame);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        homeFragment = new HomeFragment();
-        transactionFragment = new TransactionFragment();
-        accountFragment = new AccountFragment();
+        //Fragments Here
 
-        setFragment(homeFragment);
+        adapter.AddFragment(new HomeFragment(),"");
+        adapter.AddFragment(new TransactionFragment(), "");
+        adapter.AddFragment(new AccountFragment(),"");
 
-        mainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_Home:
-                        setFragment(homeFragment);
-                        return true;
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
 
-                    case R.id.nav_Transaction:
-                        setFragment(transactionFragment);
-                        return true;
+        tabLayout.getTabAt(0).setIcon(R.drawable.home);
+        tabLayout.getTabAt(1).setIcon(R.drawable.transaction);
+        tabLayout.getTabAt(2).setIcon(R.drawable.face);
 
-                    case R.id.nav_Account:
-                        setFragment(accountFragment);
-                        return true;
+        //Remove Shadow From The Action Bar
 
-                    default:
-                        return false;
-
-                }
-            }
-        });
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setElevation(0);
 
     }
 
-    private void setFragment(Fragment fragment) {
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.mainFrame, fragment);
-            fragmentTransaction.commit();
-        }
+
 
 }

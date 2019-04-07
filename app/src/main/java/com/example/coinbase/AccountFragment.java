@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  */
 public class AccountFragment extends Fragment {
 
-
+    View v;
     public AccountFragment() {
         // Required empty public constructor
     }
@@ -23,7 +23,8 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        v = inflater.inflate(R.layout.fragment_account, container, false);
+        return v;
     }
 
 }
