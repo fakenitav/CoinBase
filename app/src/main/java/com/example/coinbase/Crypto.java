@@ -3,16 +3,14 @@ package com.example.coinbase;
 public class Crypto {
 
     private String name;
-    private int price;
     private int photo;
 
     public Crypto() {
     }
 
-    public Crypto(String Name, int Price, int Photo)
+    public Crypto(String Name,int Photo)
     {
         name=Name;
-        price=Price;
         photo=Photo;
     }
 
@@ -23,9 +21,6 @@ public class Crypto {
         return name;
     }
 
-    public int getPrice() {
-        return price;
-    }
 
     public int getPhoto() {
         return photo;
@@ -36,10 +31,6 @@ public class Crypto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public void setPhoto(int photo) {
