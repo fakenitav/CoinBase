@@ -69,7 +69,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                         try {
                             JSONObject mainObject = response.getJSONObject(symbol[vHolder.getAdapterPosition()]);
                             String price = mainObject.getString("USD");
-                            dialogPrice.setText(price);
+                            dialogPrice.setText(price + " $");
 
                         }catch(JSONException e)
                         {
@@ -92,6 +92,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             }
         });
         return vHolder;
+
     }
 
     @Override
