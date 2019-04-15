@@ -84,9 +84,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 return params;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
 
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
 
     private void sendToLogin() {

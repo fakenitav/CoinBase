@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/backgroundfragment"
+    android:background="@color/colorBlack"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -26,16 +26,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/colorWhite">
 
             <EditText
                 android:id="@+id/editTextUsernameRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
-                android:textColorHint="@color/colorWhite"
+                android:hint="Username"
+                android:inputType="text"
                 android:textColor="@color/colorAccent"
-                android:inputType="text" />
+                android:textColorHint="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Email -->
@@ -43,16 +44,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/colorWhite">
 
             <EditText
                 android:id="@+id/editTextEmailRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:textColorHint="@color/colorWhite"
+                android:inputType="textEmailAddress"
                 android:textColor="@color/colorAccent"
-                android:inputType="textEmailAddress" />
+                android:textColorHint="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
@@ -60,16 +62,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/colorWhite">
 
             <EditText
                 android:id="@+id/editTextPasswordRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
                 android:hint="Password"
-                android:textColorHint="@color/colorWhite"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
