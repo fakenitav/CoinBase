@@ -60,7 +60,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 TextView dialogName = (TextView) myDialog.findViewById(R.id.dialogName);
                 final TextView dialogPrice = (TextView) myDialog.findViewById(R.id.dialogPrice);
                 ImageView dialogImage = (ImageView) myDialog.findViewById(R.id.dialogImage);
-
+             /*{"BTC":{"USD":5040.93},"ETH":{"USD":161.4},"XRP":{"USD":0.3174},"LTC":{"USD":78.08},"BCH":{"USD":306.81},"EOS":{"USD":5.34},"BNB":{"USD":19.24},"XLM":{"USD":0.114},"ADA":{"USD":0.08094},"USDT":{"USD":1}}*/
                 String url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,XRP,LTC,BCH,EOS,BNB,XLM,ADA,USDT&tsyms=USD&api_key=b6eb0367f9c4a6291a8d83d6b1fdea349d0d6cbfce59c6cb5bd4c4fa8124cbda";
 
                 JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()  {

@@ -37,6 +37,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.register);
         setTitle("Register");
 
+        if(SharedPrefManager.getInstance(this).isLoggedIn())
+        {
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+            return;
+        }
+
 
         editTextEmailRegister = (EditText) findViewById(R.id.editTextEmailRegister);
         editTextPasswordRegister = (EditText) findViewById(R.id.editTextPasswordRegister);
