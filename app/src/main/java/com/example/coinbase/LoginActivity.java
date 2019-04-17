@@ -29,8 +29,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextUsername, editTextPassword;
-    private Button btnLogin;
-    private TextView linkRegister;
+    private Button btnLogin, loginBtnRegister;
     private ProgressBar progressBar;
 
     @Override
@@ -49,18 +48,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        linkRegister = (TextView) findViewById(R.id.linkRegister);
+        loginBtnRegister = (Button) findViewById(R.id.loginBtnRegister);
         progressBar = (ProgressBar) findViewById(R.id.loginProgressBar);
 
         btnLogin.setOnClickListener(this);
 
-        linkRegister.setOnClickListener(new View.OnClickListener() {
+        loginBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerIntent(v);
             }
 
         });
+
+        getSupportActionBar().hide();
     }
 
     private void LoginUser(){
