@@ -37,13 +37,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add a new cryptocurrency to Database:"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:textSize="18dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            />
+            android:text="Add a transation"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <ProgressBar
             android:id="@+id/accountProgressBar"
@@ -66,65 +65,17 @@
                 android:id="@+id/editTextName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Cryptocurrency Name"
+                android:hint="Add Amount"
                 android:inputType="text"
                 android:textColor="@color/colorAccent"
                 android:textColorHint="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- ShortDesc -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColorHint="@color/colorWhite">
-
-            <EditText
-                android:id="@+id/editTextShortDesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Short Description"
-                android:inputType="text"
-                android:textColor="@color/colorAccent"
-                android:textColorHint="@color/colorWhite" />
-        </android.support.design.widget.TextInputLayout>
 
         <!-- Average Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColorHint="@color/colorWhite">
-
-            <EditText
-                android:id="@+id/editTextAverage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Average"
-                android:inputType="numberDecimal"
-                android:textColor="@color/colorAccent"
-                android:textColorHint="@color/colorWhite" />
-        </android.support.design.widget.TextInputLayout>
 
         <!-- Average Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColorHint="@color/colorWhite">
-
-            <EditText
-                android:id="@+id/editTextImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Image URL"
-                android:inputType="text"
-                android:textColor="@color/colorAccent"
-                android:textColorHint="@color/colorWhite" />
-        </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btnSubmit"

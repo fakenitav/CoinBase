@@ -3,21 +3,18 @@ package com.example.coinbase;
 public class Transaction {
     public int id;
     public String name;
-    public String shortdesc;
-    public String average;
-    public String image;
+    public String amount;
+
 
 
     Transaction() {
 
     }
 
-    public Transaction(int id, String name, String shortdesc, String average, String image) {
+    public Transaction(int id, String name, String amount) {
         this.id = id;
         this.name = name;
-        this.shortdesc = shortdesc;
-        this.average = average;
-        this.image = image;
+        this.amount = amount;
     }
 
     public int getId() {
@@ -28,15 +25,8 @@ public class Transaction {
         return name;
     }
 
-    public String getShortdesc() {
-        return shortdesc;
+    public String getAmount() {
+        return amount;
     }
 
-    public String getAverage() {
-        return average;
-    }
-
-    public String getImage() {
-        return image;
-    }
 }

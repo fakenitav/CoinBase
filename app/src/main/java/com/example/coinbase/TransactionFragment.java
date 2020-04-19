@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.coinbase.Constants.URL_CRYPTO;
+import static com.example.coinbase.Constants.URL_TRANSACTION;
 
 
 /**
@@ -52,7 +53,6 @@ public class TransactionFragment extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.transactionRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         transactionList = new ArrayList<>();
-
         return v;
     }
 
@@ -64,7 +64,7 @@ public class TransactionFragment extends Fragment {
     }
 
     private void loadCryptos() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_CRYPTO, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_TRANSACTION, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -74,12 +74,11 @@ public class TransactionFragment extends Fragment {
                     {
                         JSONObject cryptoObject = cryptos.getJSONObject(i);
                         int id = cryptoObject.getInt("id");
-                        String name = cryptoObject.getString("name");
-                        String shortdesc = cryptoObject.getString("shortdesc");
-                        String average = cryptoObject.getString("average");
-                        String image = cryptoObject.getString("image");
+                        String name = cryptoObject.getString("username");
+                        String amount = cryptoObject.getString("amount");
 
-                        Transaction transaction = new Transaction(id,name,shortdesc,average,image);
+
+                        Transaction transaction = new Transaction(id,name,amount);
                         transactionList.add(transaction);
 
                     }

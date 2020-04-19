@@ -54,14 +54,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         Transaction transaction = transactionList.get(i);
 
         transactionViewHolder.transactionName.setText(transaction.getName());
-        transactionViewHolder.transactionShortDesc.setText(transaction.getShortdesc());
-        transactionViewHolder.transactionAverage.setText(transaction.getAverage()+" $");
-
-        //loading the image
-        Glide.with(mCtx)
-                .load(transaction.getImage())
-                .into(transactionViewHolder.transactionImageView);
-
+        transactionViewHolder.transactionAmount.setText(transaction.getAmount());
 
     }
 
@@ -74,18 +67,14 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
  //       private RelativeLayout transactionItem;
         private TextView transactionName;
-        private TextView transactionShortDesc;
-        private TextView transactionAverage;
-        private ImageView transactionImageView;
+        private TextView transactionAmount;
 
         public TransactionViewHolder(View itemView) {
             super(itemView);
 
 //            transactionItem = (RelativeLayout) itemView.findViewById(R.id.transaction_item);
-            transactionName = (TextView) itemView.findViewById(R.id.transactionName);
-            transactionShortDesc = (TextView) itemView.findViewById(R.id.transactionShortDesc);
-            transactionAverage = (TextView) itemView.findViewById(R.id.transactionAverage);
-            transactionImageView = (ImageView) itemView.findViewById(R.id.transactionImage);
+            transactionName = (TextView) itemView.findViewById(R.id.transactionUsername);
+            transactionAmount = (TextView) itemView.findViewById(R.id.transactionAmount);
 
         }
     }

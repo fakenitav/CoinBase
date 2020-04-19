@@ -39,7 +39,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
         // Required empty public constructor
     }
 
-    EditText editTextName, editTextShortDesc, editTextAverage, editTextImage;
+    EditText editTextAmount, editTextShortDesc, editTextAverage, editTextImage;
     TextView textViewUsername;
     Button btnSubmit;
     ProgressBar progressBar;
@@ -50,10 +50,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_account, container, false);
-        editTextName = (EditText) v.findViewById(R.id.editTextName);
-        editTextShortDesc = (EditText) v.findViewById(R.id.editTextShortDesc);
-        editTextAverage = (EditText) v.findViewById(R.id.editTextAverage);
-        editTextImage = (EditText) v.findViewById(R.id.editTextImage);
+        editTextAmount = (EditText) v.findViewById(R.id.editTextName);
         textViewUsername = (TextView) v.findViewById(R.id.textViewUsername);
         textViewUsername.setText(SharedPrefManager.getInstance(getContext()).getUsername());
         progressBar =  (ProgressBar) v.findViewById(R.id.accountProgressBar);
@@ -64,10 +61,8 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     }
 
     private void submitCrypto() {
-        final String name = editTextName.getText().toString().trim();
-        final String shortdesc = editTextShortDesc.getText().toString().trim();
-        final String average = editTextAverage.getText().toString().trim();
-        final String image = editTextImage.getText().toString().trim();
+        final String amount = editTextAmount.getText().toString().trim();
+        final String username = SharedPrefManager.getInstance(getContext()).getUsername();
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -79,7 +74,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    Toast.makeText(getContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Added Successfully", Toast.LENGTH_SHORT).show();
                     sendToMain();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -94,10 +89,8 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<>();
-                params.put("name",name);
-                params.put("shortdesc",shortdesc);
-                params.put("average",average);
-                params.put("image",image);
+                params.put("username",username);
+                params.put("amount",amount);
                 return params;
             }
         };

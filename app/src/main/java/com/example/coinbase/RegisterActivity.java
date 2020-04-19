@@ -27,9 +27,10 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText editTextEmailRegister, editTextPasswordRegister, editTextUsernameRegister;
+    EditText editTextEmailRegister, editTextPasswordRegister, editTextUsernameRegister, editTextMobileRegister;
     Button btnRegister;
     ProgressBar progressBar;
+    String otp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editTextEmailRegister = (EditText) findViewById(R.id.editTextEmailRegister);
         editTextPasswordRegister = (EditText) findViewById(R.id.editTextPasswordRegister);
         editTextUsernameRegister = (EditText) findViewById(R.id.editTextUsernameRegister);
+        editTextMobileRegister = (EditText) findViewById(R.id.editTextMobileRegister);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnRegister = (Button) findViewById(R.id.btnRegister);
 
@@ -58,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         final String email = editTextEmailRegister.getText().toString().trim();
         final String password = editTextPasswordRegister.getText().toString().trim();
         final String username = editTextUsernameRegister.getText().toString().trim();
+        final String mobile = editTextMobileRegister.getText().toString().trim();
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -69,8 +72,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 //{"error":true,"message":"Invalid Request"}
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    Toast.makeText(RegisterActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-                    sendToLogin();
+                  Toast.makeText(RegisterActivity.this, "successful", Toast.LENGTH_SHORT).show();
+                  otp = jsonObject.getString("message");
+                  sendToOtp();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -88,6 +92,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 params.put("username",username);
                 params.put("email",email);
                 params.put("password",password);
+                params.put("mobile",mobile);
                 return params;
             }
         };
@@ -95,8 +100,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
 
-    private void sendToLogin() {
-        Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+    private void sendToOtp() {
+        Intent loginIntent = new Intent(RegisterActivity.this, Otp.class);
+        loginIntent.putExtra("otp",otp);
         startActivity(loginIntent);
         finish();
     }
