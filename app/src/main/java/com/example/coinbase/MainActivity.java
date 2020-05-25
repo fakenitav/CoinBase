@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(!SharedPrefManager.getInstance(this).isLoggedIn())
-        {
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
-        }
+//        if(!SharedPrefManager.getInstance(this).isLoggedIn())
+//        {
+//            finish();
+//            startActivity(new Intent(this, LoginActivity.class));
+//        }
             tabLayout = (TabLayout) findViewById(R.id.tabLayout);
             viewPager = (ViewPager) findViewById(R.id.viewPager);
             adapter = new ViewPagerAdapter(getSupportFragmentManager());
